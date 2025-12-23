@@ -13,6 +13,16 @@ class TicketSystem{
 		System.out.print("Enter age - ");
 		int age = sc.nextInt();
 
+		System.out.print("Are you government employee true, false - ");
+		boolean gov = sc.nextBoolean();
+
+		int discountType;
+		if (age>=60){
+			discountType=1;
+		}else if(gov){
+			discountType=2;
+		}else if(age>5 && )
+
 		if(age<5){
 			System.out.println("No booking required");
 			return;
@@ -92,6 +102,8 @@ class TicketSystem{
 			}
 			break;
 		}
+
+		System.out.println(" ");
 
 	}
 }
