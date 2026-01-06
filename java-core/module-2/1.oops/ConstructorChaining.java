@@ -8,9 +8,9 @@
 // difference between constructor overloading and method overloading?
 // constructor overloading is the process of creating multiple constructors in the same class with different parameters. 
 // method overloading is the process of creating multiple methods in the same class with different parameters.
-// what use of parametarized constructor?
+// why use of parametarized constructor?
 // parametarized constructor is used to initialize the instance variables of the class.
-// what is use of copy constructor?
+// why is use of copy constructor?
 // copy constructor is used to initialize the instance variables of the class with the help of another object.
 
 public class ConstructorChaining {

@@ -28,7 +28,6 @@ public class Student1 {
     public Student1(Student1 s){
         this.id=s.id;
         this.name=s.name;
-        // Deep copy of the array
         this.marks = new int[s.marks.length];
         for(int i=0; i<s.marks.length; i++) {
             this.marks[i] = s.marks[i];
@@ -47,16 +46,14 @@ public class Student1 {
         int[] marks1 = {80, 90, 85};
         Student1 s1 = new Student1(1, "Alice", marks1);
         
-        // Create copy
         Student1 s2 = new Student1(s1);
         
         System.out.println("Before modification:");
         System.out.print("Original: "); s1.display();
         System.out.print("Copy:     "); s2.display();
         
-        // Modify marks of the copied object
         s2.marks[0] = 99;
-        s2.name = "Bob"; // Also changing name to distinguish clearly
+        s2.name = "Bob";
         
         System.out.println("\nAfter modification (Copy's marks[0] changed to 99):");
         System.out.print("Original: "); s1.display();
