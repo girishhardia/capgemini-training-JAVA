@@ -3,5 +3,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="module-2/1.oops"/>
 	<classpathentry kind="src" path="module-2/3.relationships"/>
+	<classpathentry kind="src" path="module-2/4.inheritance"/>
+	<classpathentry kind="src" path="module-2/5.non-primitive-typecasting"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

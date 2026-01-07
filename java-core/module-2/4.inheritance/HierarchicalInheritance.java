@@ -1,4 +1,5 @@
-// Hierarchical Inheritanceclass Animal {
+// Hierarchical Inheritance
+class Animal {
     void eat() {
         System.out.println("Animal eats");
     }
@@ -18,9 +19,9 @@ class Cat extends Animal {
 
 public class HierarchicalInheritance {
     public static void main(String[] args) {
-        Dog d = new Dog();HierarchicalInheritance
+        Dog d = new Dog(); //HierarchicalInheritance
         d.eat();
-        d.bark();
+        d.bark(); 
 
         Cat c = new Cat();
         c.eat();
