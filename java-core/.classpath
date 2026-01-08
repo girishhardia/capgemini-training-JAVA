@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="module-2/4.inheritance"/>
 	<classpathentry kind="src" path="module-2/5.non-primitive-typecasting"/>
 	<classpathentry kind="src" path="module-2/6.polymorphism"/>
+	<classpathentry kind="src" path="module-2/7.abstraction"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
