@@ -12,19 +12,25 @@
 //          When a variable in a subclass has the same name as a variable in its superclass.
 //          The variable in the subclass will shadow the variable in the superclass.
 //          Which variavle to be called is decided during compile time.
-//      4. Method shadowing
+//      4. Method shadowing : 
+//          When a sub class is having a method with the same name as a static method in its superclass.
+//          The method in the subclass will shadow the method in the superclass.
+//          Which method to be called is decided during compile time based on reference variable type.
 //      
 // 2. Run time polymorphism
 //      The binding happens during runtime is known as run time polymorphism.
 //      It is also known as dynamic binding or late binding.
 //      We can achieve run time polymorphism using
-//      1. Method overriding
+//      1. Method overriding :
+//          When a sub class is having a method with the same name as a instance method in its superclass.
+//          The method in the subclass will override the method in the superclass.
+//          Which method to be called is decided during runtime based on object type.
 //
 
 // why we use variable shadowing
 // to access the variable of superclass
 // where we use variable shadowing
-// we use variable shadowing while upcasting, downcasting and method overriding
+// we use variable shadowing while inheritance (upcasting, downcasting), method overriding and method shadowing
 
 class Father {
     int a = 10;
@@ -51,7 +57,7 @@ public class Intro {
         System.out.println("---Upcasting---");
         Father ref3 = new Son();
         System.out.println(ref3.a);
-        System.out.println(ref.b);
+        System.out.println(ref3.b);
         System.out.println("--Downcasting---");
         Son ref4 = (Son) ref3;
         System.out.println(ref4.a);
