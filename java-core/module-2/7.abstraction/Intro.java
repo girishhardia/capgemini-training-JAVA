@@ -37,6 +37,19 @@ Abstract class :
     A class which is declared with abstract keyword is known as abstract class.
     It can have abstract methods (without body) and non-abstract methods (with body).
 
+    we can create constructor in abstract class.
+    we can create final methods in abstract class.
+    we can create static methods in abstract class.
+    we can create private methods in abstract class.
+    we can create final variables in abstract class.
+    we can create static variables in abstract class.
+    we can create private variables in abstract class. 
+    we can create static blocks in abstract class.
+    we can create instance blocks in abstract class.
+    
+    in abstract class we can create abstract methods (without body) and non-static complete methods (with body) hence we cannot achieve 100% abstraction.
+    if you want to achieve 100% abstraction then we have to use interface.
+
 
 
 Interface :
@@ -72,7 +85,7 @@ public class Intro {
         //Father ref = new Father(); CTE cannot instantiate the type Father
         Father ref = new Son();
         ref.test();
-        System.out.println(ref.demo(0, 0));
+        ref.demo(0, 0);
         //Downcasting
         Son ref2 = (Son) ref;
         ref2.show();
