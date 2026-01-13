@@ -9,5 +9,6 @@
 	<classpathentry kind="src" path="module-2/7.abstraction"/>
 	<classpathentry kind="src" path="module-2/8.object_class"/>
 	<classpathentry kind="src" path="module-2/11.error_handaling"/>
+	<classpathentry kind="src" path="module-2/10.Collections/list"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

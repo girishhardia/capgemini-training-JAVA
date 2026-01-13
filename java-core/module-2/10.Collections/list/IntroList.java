@@ -31,7 +31,7 @@ List :
             It is used to add all objects from another collection inside List.
             Return type of addAll method is boolean.
 
-        addAll(int index, Collection) :
+        addAll(int index, Collection c) :
             It is used to add all objects from another collection inside List at specific index.
             Return type of addAll method is boolean.
 
@@ -43,7 +43,7 @@ List :
             It is used to remove object from List at specific index.
             Return type of remove method is Object.
 
-        removeAll(Collection) :
+        removeAll(Collection c) :
             It is used to remove all objects from another collection inside List.
             Return type of removeAll method is boolean.
 
@@ -55,7 +55,7 @@ List :
             It is used to check if List contains specific object.
             Return type of contains method is boolean.
 
-        containsAll(Collection) :
+        containsAll(Collection c) :
             It is used to check if List contains all objects from another collection.
             Return type of containsAll method is boolean.
             
