@@ -83,9 +83,24 @@ List :
         listIterator()
         for each loop
 
+    Write a difference between for loop for each loop, iterator.
+    - for loop: 
+        - Uses an index to access elements (list.get(i)).
+        - Allows bidirectional traversal and modification of the list, but requires manual index management.
+    - for-each loop: 
+        - Simplified syntax introduced in Java 5.
+        - Internally uses an Iterator but hides it.
+        - Does not allow structural modification (like removing elements) during iteration; doing so throws ConcurrentModificationException.
+    - Iterator: 
+        - A standard interface to traverse any Collection.
+        - Provides a safe way to remove elements during iteration using the iterator.remove() method.
+        - Only supports forward traversal.
     
 
 */
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class IntroList {
     public static void main(String[] args) {
