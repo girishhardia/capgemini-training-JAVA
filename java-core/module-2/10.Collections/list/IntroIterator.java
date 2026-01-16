@@ -68,37 +68,85 @@ with the help of itertor() we can travers only in forward direction.
 
 */
 
+// import java.util.ArrayList;
+// import java.util.Iterator;
+// import java.util.List;
+
+// public class IntroIterator {
+//     public static void main(String[] args) {
+//         int[] a = {10, 21, 23, 25, 26};
+//         List<Integer> al = new ArrayList<Integer>();
+//         for (int i : a) {
+//             al.add(i);
+//         }
+//         System.out.println(al);
+        
+//         Iterator<Integer> itr = al.iterator();
+//         while(itr.hasNext()) {
+//             System.out.println(itr.next());
+//         }
+//         // WAJP to remove object from list one by one
+//         /*
+//         * [10,21,23,25,26]
+//         * [21,23,25,26]
+//         * [23,25,26]
+//         * [25,26]
+//         * [26]
+//         */
+
+//         System.out.println("--- Output ---");
+        
+//         while (!al.isEmpty()) {
+//             System.out.println(al); // Prints the current list state
+//             al.remove(0);           // Removes the first element (index 0)
+//         }
+//     }
+// }
+
+/*
+ListIterator:
+1. Bidirectional Traversal: Unlike the standard Iterator, ListIterator allows traversal in both forward (next()) and backward (previous()) directions.
+2. List-Specific: It is uniquely available for classes that implement the List interface (e.g., ArrayList, LinkedList, Vector).
+3. Index Retrieval: It provides methods to retrieve the index of the next (nextIndex()) or previous (previousIndex()) elements relative to the current cursor position.
+4. Modification Capabilities:
+   - add(E e): Inserts a new element at the current cursor position.
+   - set(E e): Replaces the last element returned by next() or previous() with a new value.
+   - remove(): Deletes the last element returned by the iterator.
+5. Cursor Logic: The iterator functions as a pointer that resides between elements. Calling next() moves the cursor forward and returns the element passed, while previous() moves it back.
+*/
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
-public class P7 {
+public class IntroIterator {
     public static void main(String[] args) {
-        int[] a = {10, 21, 23, 25, 26};
-        List<Integer> al = new ArrayList<Integer>();
-        for (int i : a) {
+        String[] a = {"suraj", "Mridul", "kabir", "girish"};
+        List<String> al = new ArrayList<String>();
+        for (String i : a) {
             al.add(i);
         }
         System.out.println(al);
-        
-        Iterator<Integer> itr = al.iterator();
-        while(itr.hasNext()) {
-            System.out.println(itr.next());
+        ListIterator<String> ltr = al.listIterator();
+        // System.out.println(ltr.hasPrevious()); false
+        // System.out.println(ltr.previous()); NoSuchElementException
+        System.out.println("==forward==");
+        while(ltr.hasNext()) {
+            System.out.println(ltr.next());
         }
-        // WAJP to remove object from list one by one
-        /*
-        * [10,21,23,25,26]
-        * [21,23,25,26]
-        * [23,25,26]
-        * [25,26]
-        * [26]
-        */
-
-        System.out.println("--- Output ---");
-        
-        while (!al.isEmpty()) {
-            System.out.println(al); // Prints the current list state
-            al.remove(0);           // Removes the first element (index 0)
+        System.out.println("==backward==");
+        while(ltr.hasPrevious()) {
+            System.out.println(ltr.previous());
         }
+        // remove from backward
+        while (ltr.hasNext()) {
+            ltr.next();
+        }
+        while(ltr.hasPrevious()) {
+            ltr.previous();
+            ltr.remove();
+            System.out.println(al);
+        }    
     }
 }
