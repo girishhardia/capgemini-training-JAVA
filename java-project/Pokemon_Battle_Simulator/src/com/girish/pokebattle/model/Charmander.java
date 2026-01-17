@@ -22,12 +22,14 @@ public class Charmander extends Pokemon {
 //		// TODO Auto-generated constructor stub
 //	}
 	
-	this.setName("Charmander");
-	this.setType(Type.FIRE);
-	this.setMaxhp(100);
-	this.setHp(100);
-	this.attack(40);
-	this.defence(10);
-	this.speed(30);
+	Charmander(){
+		this.setName("Charmander");
+		this.setType(Type.FIRE);
+		this.setMaxHp(100);
+		this.setHp(100);
+		this.setAttack(50);
+		this.setDefence(20);
+		this.setSpeed(40);
+	}
 
 }

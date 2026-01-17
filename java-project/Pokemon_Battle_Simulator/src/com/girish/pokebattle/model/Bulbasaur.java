@@ -1,15 +1,20 @@
+/**
+ * 
+ */
 package com.girish.pokebattle.model;
 
-import com.girish.pokebattle.pokemon;
-
-public class Bulbasaur extends pokemon {
-
+/**
+ * 
+ */
+public class Bulbasaur extends Pokemon {
 	
-	this.setName("Bulbasaur");
-	this.setType(Type.GRASS);
-	this.setMaxhp(100);
-	this.setHp(100);
-	this.attack(20);
-	this.defence(50);
-	this.speed(10);
+	Bulbasaur(){
+		this.setName("Bulbasaur");
+		this.setType(Type.GRASS);
+		this.setMaxHp(100);
+		this.setHp(100);
+		this.setAttack(40);
+		this.setDefence(40);
+		this.setSpeed(30);
+	}
 }
