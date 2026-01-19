@@ -8,6 +8,9 @@ package com.girish.pokebattle.model;
  */
 public class Squirtle extends Pokemon {
 	
+	final Type normalMove = Type.NORMAL;
+	final Type specialMove = Type.WATER;
+	
 	Squirtle(){
 		this.setName("Squirtle");
 		this.setType(Type.WATER);

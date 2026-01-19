@@ -22,6 +22,9 @@ public class Charmander extends Pokemon {
 //		// TODO Auto-generated constructor stub
 //	}
 	
+	final Type normalMove = Type.NORMAL;
+	final Type specialMove = Type.FIRE;
+	
 	Charmander(){
 		this.setName("Charmander");
 		this.setType(Type.FIRE);

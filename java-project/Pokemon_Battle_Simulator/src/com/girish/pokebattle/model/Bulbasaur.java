@@ -8,6 +8,9 @@ package com.girish.pokebattle.model;
  */
 public class Bulbasaur extends Pokemon {
 	
+	final Type normalMove = Type.NORMAL;
+	final Type specialMove = Type.GRASS;
+	
 	Bulbasaur(){
 		this.setName("Bulbasaur");
 		this.setType(Type.GRASS);
