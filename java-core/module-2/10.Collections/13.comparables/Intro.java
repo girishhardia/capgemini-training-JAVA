@@ -1,5 +1,18 @@
 /*
 
+Comparable
+	It is an interface present inside java.lang package
+	It was introduced in JDK 1.2
+	It is used to define natural sorting order of objects
+	It provides only one method → compareTo(Object o)
+	Sorting logic is written inside the same class
+	It allows only one sorting sequence
+	It is used when default sorting logic is required
+	It is mainly used with Collections.sort() and TreeSet / TreeMap
+	It modifies the original class
+	Example:
+	String, Integer, Float already implement Comparable
+
 The Comparable interface is used to define the "natural ordering" of objects of a class.
 
 1. Interface Definition:
