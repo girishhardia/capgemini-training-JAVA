@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Management</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/list}">View Products</a>
+            <a th:href="@{/add}">Add Product</a>
+        </nav>
+    </header>
+    <div class="container text-center">
+        <h1>Welcome to Product Management</h1>
+        <p style="text-align: center; color: var(--text-muted);">Spring MVC Tutorial Project</p>
+        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem;">
+            <a th:href="@{/list}" class="btn">View Inventory</a>
+            <a th:href="@{/add}" class="btn" style="background-color: transparent; border: 1px solid var(--primary-color); color: var(--primary-color);">Add New Product</a>
+        </div>
+    </div>
+</body>
+</html>

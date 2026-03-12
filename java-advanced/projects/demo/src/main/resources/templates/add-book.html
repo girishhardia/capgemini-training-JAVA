@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Book - Library Management</title>
+
+</head>
+<body>
+    <div class="navbar">
+        <span>Library Management System</span>
+        <div>
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/books}">View Books</a>
+            <a th:href="@{/login}">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-card">
+            <h2>Add New Book</h2>
+            <form th:action="@{/books/add}" th:object="${book}" method="post">
+                <div class="form-group">
+                    <label>Title:</label>
+                    <input type="text" th:field="*{title}" />
+                    <div class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                </div>
+                <div class="form-group">
+                    <label>Author:</label>
+                    <input type="text" th:field="*{author}" />
+                    <div class="error" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+                </div>
+                <div class="form-group">
+                    <label>Price:</label>
+                    <input type="number" step="0.01" th:field="*{price}" />
+                    <div class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+                </div>
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

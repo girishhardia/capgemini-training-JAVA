@@ -1,0 +1,28 @@
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>User List</title>
+</head>
+<body>
+    <h1>User List</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <c:forEach var="user" items="${users}">
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td><a href="/maven-web/user/${user.id}">View Details</a></td>
+            </tr>
+        </c:forEach>
+    </table>
+    <br/>
+    <a href="/maven-web/addUser">Add New User</a> | <a href="/maven-web/home">Home</a>
+</body>
+</html>

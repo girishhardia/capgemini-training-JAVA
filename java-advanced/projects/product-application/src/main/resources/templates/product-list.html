@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product List</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/list}">View Products</a>
+            <a th:href="@{/add}">Add Product</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1>Product Inventory</h1>
+            <a th:href="@{/add}" class="btn">Add Product</a>
+        </div>
+        
+        <table th:if="${not #lists.isEmpty(products)}">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${products}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.name}"></td>
+                    <td th:text="'$' + ${#numbers.formatDecimal(p.price, 1, 2)}"></td>
+                    <td th:text="${p.quantity}"></td>
+                    <td>
+                        <a th:href="@{/edit/{id}(id=${p.id})}" class="btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;">Edit</a>
+                        <a th:href="@{/delete/{id}(id=${p.id})}" class="btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem; background-color: var(--danger);" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div th:if="${#lists.isEmpty(products)}" style="text-align: center; color: var(--text-muted); padding: 3rem;">
+            No products found. Start by adding one!
+        </div>
+    </div>
+</body>
+</html>

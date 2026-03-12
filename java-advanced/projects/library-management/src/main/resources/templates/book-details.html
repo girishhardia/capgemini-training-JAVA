@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Details - Library Management</title>
+
+</head>
+<body>
+    <div class="navbar">
+        <span>Library Management System</span>
+        <div>
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/books}">View Books</a>
+            <a th:href="@{/login}">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="details-card">
+            <h2>Book Details</h2>
+            <div class="detail-row">
+                <span class="label">Book ID:</span>
+                <span class="value" th:text="${book.id}"></span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Title:</span>
+                <span class="value" th:text="${book.title}"></span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Author:</span>
+                <span class="value" th:text="${book.author}"></span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Price:</span>
+                <span class="value" th:text="${#numbers.formatCurrency(book.price)}"></span>
+            </div>
+            <a th:href="@{/books}" class="btn btn-back">Back to Library</a>
+        </div>
+    </div>
+</body>
+</html>

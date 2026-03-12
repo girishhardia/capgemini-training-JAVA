@@ -168,3 +168,190 @@ AND SAL BETWEEN 999 AND 5001;
 #CROSS JOIN
 SELECT *
 FROM EMP CROSS JOIN DEPT;
+
+SHOW TABLES;
+
+#INNER JOIN
+SELECT *
+FROM EMP INNER JOIN DEPT
+ON EMP.DEPTNO = DEPT.DEPTNO;
+
+#WAQTD DETAILS OF EMP AND THEIR DEPT IF THE EMPYOYEE ARE EARNING MORE THAN 3000
+SELECT *
+FROM EMP INNER JOIN DEPT
+ON EMP.DEPTNO = DEPT.DEPTNO
+WHERE SAL>3000;
+
+#WAQTD DEPT ALONG WITH EMP NAME IF WMP ARE WORKING IN THE LOCATION OF CHICAGO
+# AND THE ARE HIRED AFTER CLERK
+SELECT DEPT.* , ENAME
+FROM EMP INNER JOIN DEPT
+ON EMP.DEPTNO = DEPT.DEPTNO
+WHERE LOC = 'CHICAGO' AND HIREDATE = ALL(SELECT HIREDATE FROM EMP WHERE JOB='CLERK');
+
+#WAQTD NUMBER NOT EMP WORKING IN EACH DEPT IF THEIR MOX SAL IS MORE THA 2000 
+#AND THEIR LOC IS NEWYOURK OR CHICAGO AND THEY ATE HEIRED AFTER THE EMPLOYEE 
+#WHO IS NOT EARNING COMMITION
+SELECT COUNT(*),EMP.DEPTNO
+FROM EMP INNER JOIN DEPT
+ON EMP.DEPTNO=DEPT.DEPTNO
+WHERE LOC = ('NEW YORK' OR 'CHICAGO') 
+	AND HIREDATE>ALL(SELECT HIREDATE FROM EMP WHERE (COMM IS NULL OR COMM = 0.00))
+GROUP BY EMP.DEPTNO
+HAVING MAX(SAL)>2000;
+
+#QUERY TO DISPLAY DEDAILS OF FORDS MANAGER
+SELECT *
+FROM EMP
+WHERE EMPNO = (SELECT MGR FROM EMP WHERE ENAME='FORD');
+
+#DISPLAY NAME AND HIREDATRE OF ADAMS MANAGER
+select ENAME, HIREDATE
+FROM EMP
+WHERE EMPNO = (SELECT MGR FROM EMP WHERE ENAME = 'ADAMS');
+
+#DISPLAY NAME AND HIREDATRE OF SMITH'S MANAGER'S MANAGER DETAILS
+select ENAME, HIREDATE
+FROM EMP
+WHERE EMPNO = (SELECT MGR FROM EMP WHERE EMPNO = 
+	(SELECT MGR FROM EMP WHERE ENAME = 'ADAMS'));
+    
+# DETAILS OM EMP REPORTHINF TO KING
+SELECT *
+FROM EMP 
+WHERE MGR = (SELECT EMPNO FROM EMP WHERE ENAME = 'KING');
+
+#DETAIS OF EMP AND THEIR MANAGER DETAILS
+#self join
+SELECT *
+FROM EMP AS E1 JOIN EMP AS E2
+ON E1.MGR = E2.EMPNO;
+
+#NSMRD OG RMP AND THEIR MANAGERS IF EMP ARE EARNING MORE THAN 2000
+SELECT *
+FROM EMP AS E1 JOIN EMP AS E2
+ON E1.MGR = E2.EMPNO
+WHERE E1.SAL > 2000;
+
+#NAMES OF EMP AND THEIR MANAGER IF EMP ARE EARNING MORE THAN THEIR MANAGERS AND MANAGERS ARE HEIRED AFTER CLERK
+SELECT EMPT.ENAME AS EMPLOYEE, MGRT.ENAME AS MANAGER
+FROM EMP AS EMPT JOIN EMP AS MGRT
+ON EMPT.MGR = MGRT.EMPNO
+WHERE EMPT.SAL > MGRT.SAL AND MGRT.HIREDATE >ALL(select HIREDATE FROM EMP WHERE JOB = 'CLERK');
+
+#DETAILS OF EMP AND THEIR MANAGER AND THEIR MANAGER
+
+SELECT *
+FROM EMP AS E1 JOIN EMP AS E2
+ON E1.MGR = E2.EMPNO
+JOIN EMP AS E3
+ON E2.MGR = E3.EMPNO;
+
+#DETAILS OF EMP AND THEIR MANAGER AND THEIR MANAGER IF EMPLOYEE ARE ERNING MORETHAN their manage 
+#and manager are hired after blake and manager's manager are working indept 10 or 30
+SELECT *
+FROM EMP E1 JOIN EMP E2
+ON E1.MGR = E2.EMPNO
+JOIN EMP E3
+ON E2.MGR = E3.EMPNO
+WHERE E1.SAL>E2.SAL AND E2.HIREDATE>(SELECT HIREDATE FROM EMP WHERE ENAME = 'BLAKE') 
+	AND E3.DEPTNO IN (10,30) 
+	AND (E1.ENAME LIKE "%A%" OR E1.ENAME LIKE "%S%")
+    AND (E2.ENAME LIKE "%A%" OR E2.ENAME LIKE "%S%")
+    AND (E3.ENAME LIKE "%A%" OR E3.ENAME LIKE "%S%");
+    
+#NSMES OF EMP AND THEIR MANAGER AND THEIR MANAGER ALONG WITH THEIR DEPARTMENT NAME
+SELECT 
+    E1.ENAME AS Employee, 
+    D1.DNAME AS Emp_Dept,
+    E2.ENAME AS Manager, 
+    D2.DNAME AS Mgr_Dept,
+    E3.ENAME AS Grand_Manager, 
+    D3.DNAME AS Grand_Mgr_Dept
+FROM EMP E1
+-- Join to get the Manager
+JOIN EMP E2 ON E1.MGR = E2.EMPNO
+-- Join to get the Manager's Manager (Grand-Manager)
+JOIN EMP E3 ON E2.MGR = E3.EMPNO
+-- Join for Employee's Department
+JOIN DEPT D1 ON E1.DEPTNO = D1.DEPTNO
+-- Join for Manager's Department
+JOIN DEPT D2 ON E2.DEPTNO = D2.DEPTNO
+-- Join for Grand-Manager's Department
+JOIN DEPT D3 ON E3.DEPTNO = D3.DEPTNO;
+
+#NATURAL JOIN
+SELECT *
+FROM EMP
+NATURAL JOIN DEPT;
+
+#LEFT OUTER JOIN
+SELECT 
+    E.ENAME AS Employee, 
+    M.ENAME AS Manager
+FROM EMP E
+LEFT OUTER JOIN EMP M ON E.MGR = M.EMPNO;
+
+#FULL OUTER JOIN
+SELECT * FROM EMP LEFT JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO
+UNION
+SELECT * FROM EMP RIGHT JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO;
+
+#co related sub query
+#disply 5th minimum salary 
+select e1.sal
+from emp e1
+where 5-1 in (select count(distinct e2.sal)
+	from emp e2
+    where e1.sal>e2.sal);
+    
+#query to disply emloyee who is earning 7th max sal
+select *
+from emp e1
+where 7-1 in (select count(distinct e2.sal)
+	from emp e2
+    where e1.sal<e2.sal);
+    
+# 4th and 5th max sal
+select *
+from emp e1
+where 7-1 in (select count(distinct e2.sal)
+	from emp e2
+    where e1.sal<e2.sal)
+    or
+    5-1 in (select count(distinct e2.sal)
+	from emp e2
+    where e1.sal<e2.sal);
+    
+select *
+from emp e1
+where (select count(distinct e2.sal)
+	from emp e2
+    where e1.sal<e2.sal) in (7-1,5-1);
+    
+# first 5 max
+select e1.sal
+from emp e1
+where (select count(distinct e2.sal)
+	from emp e2
+    where e1.sal<e2.sal)<=5-1;
+    
+#2nd max sal of each dept
+
+#details of employees whoes salary is greater than avg sal of their own dept
+select *
+from emp
+where sal > any(select avg(sal) from emp group by deptno);
+
+select substring(job,1,3)
+from emp;
+
+select length('yashraj') - length(replace('yashraj','a',''));
+
+select *
+from emp
+where 2 = (length(ename) - length(replace(ename,'L','')));
+
+select *
+from emp
+where 

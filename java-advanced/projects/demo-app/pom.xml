@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.girish</groupId>
+  <artifactId>demo-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>demo-app</name>
+  <url>https://maven.apache.org</url>
+  <modules>
+    <module>meven-child1</module>
+    <module>maven-child2</module>
+  </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+<!--  <repositories>-->
+
+<!--    <repository>-->
+<!--      <id></id>-->
+<!--      <name></name>-->
+<!--      <url></url>-->
+<!--    </repository>-->
+<!--    -->
+<!--  </repositories>-->
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>6.2.11</version>
+      <scope>compile</scope>  <!-- compile: is the default scope if no scope is given this will be used
+                                 provided: The dependency is available at compile-time but is not included
+                                            in the final artifact.
+                                 runtime: The dependency is not required for compilation but is needed
+                                 during runtime, including execution and tests.
+                                 system: The dependency is available for compilation and testing but
+                                 must be explicitly provided by the developer on the system.-->
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>4.0.3</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>  <!-- available only for test compilation and execution phases -->
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+<!--      <plugin>-->
+<!--        -->
+<!--      </plugin>-->
+    </plugins>
+  </build>
+</project>

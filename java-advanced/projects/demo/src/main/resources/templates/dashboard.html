@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard - Library Management</title>
+
+</head>
+<body>
+    <div class="navbar">
+        <span>Library Management System</span>
+        <div>
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/login}">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Welcome to the Dashboard</h1>
+        <p>Manage your library efficiently.</p>
+        <div class="cards">
+            <a th:href="@{/books/add}" class="card">
+                <h3>Add Book</h3>
+                <p>Register a new book in the system.</p>
+            </a>
+            <a th:href="@{/books}" class="card">
+                <h3>View Books</h3>
+                <p>View and manage all available books.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
