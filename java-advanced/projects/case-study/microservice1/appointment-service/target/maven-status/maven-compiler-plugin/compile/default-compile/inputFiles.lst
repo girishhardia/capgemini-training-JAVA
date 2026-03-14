@@ -1,0 +1,8 @@
+E:\capgemini-training-JAVA\java-advanced\projects\case-study\microservice1\appointment-service\src\main\java\com\mediconnect\appointmentservice\controller\AppointmentController.java
+E:\capgemini-training-JAVA\java-advanced\projects\case-study\microservice1\appointment-service\src\main\java\com\mediconnect\appointmentservice\entity\Appointment.java
+E:\capgemini-training-JAVA\java-advanced\projects\case-study\microservice1\appointment-service\src\main\java\com\mediconnect\appointmentservice\AppointmentServiceApplication.java
+E:\capgemini-training-JAVA\java-advanced\projects\case-study\microservice1\appointment-service\src\main\java\com\mediconnect\appointmentservice\dto\AppointmentResponseDTO.java
+E:\capgemini-training-JAVA\java-advanced\projects\case-study\microservice1\appointment-service\src\main\java\com\mediconnect\appointmentservice\dto\AppointmentRequestDTO.java
+E:\capgemini-training-JAVA\java-advanced\projects\case-study\microservice1\appointment-service\src\main\java\com\mediconnect\appointmentservice\repository\AppointmentRepository.java
+E:\capgemini-training-JAVA\java-advanced\projects\case-study\microservice1\appointment-service\src\main\java\com\mediconnect\appointmentservice\dto\DoctorResponseDTO.java
+E:\capgemini-training-JAVA\java-advanced\projects\case-study\microservice1\appointment-service\src\main\java\com\mediconnect\appointmentservice\client\DoctorClient.java

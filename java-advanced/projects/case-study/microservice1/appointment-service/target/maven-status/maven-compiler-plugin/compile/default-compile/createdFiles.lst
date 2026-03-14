@@ -1,0 +1,8 @@
+com\mediconnect\appointmentservice\dto\AppointmentResponseDTO.class
+com\mediconnect\appointmentservice\AppointmentServiceApplication.class
+com\mediconnect\appointmentservice\repository\AppointmentRepository.class
+com\mediconnect\appointmentservice\client\DoctorClient.class
+com\mediconnect\appointmentservice\dto\DoctorResponseDTO.class
+com\mediconnect\appointmentservice\controller\AppointmentController.class
+com\mediconnect\appointmentservice\dto\AppointmentRequestDTO.class
+com\mediconnect\appointmentservice\entity\Appointment.class

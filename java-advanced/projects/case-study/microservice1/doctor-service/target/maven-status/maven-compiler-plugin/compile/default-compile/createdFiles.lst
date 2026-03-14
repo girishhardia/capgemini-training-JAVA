@@ -1,0 +1,6 @@
+com\mediconnect\doctorservice\entity\Doctor.class
+com\mediconnect\doctorservice\dto\DoctorResponseDTO.class
+com\mediconnect\doctorservice\DoctorServiceApplication.class
+com\mediconnect\doctorservice\controller\DoctorController.class
+com\mediconnect\doctorservice\repository\DoctorRepository.class
+com\mediconnect\doctorservice\dto\DoctorRequestDTO.class
